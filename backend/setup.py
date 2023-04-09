@@ -1,10 +1,12 @@
 import PySimpleGUI as sg
 
-sg.theme('DarkAmber')   # Add a touch of color
+
+sg.theme('DarkGrey8')   # Add a touch of color
 # All the stuff inside your window.
 layout = [  [sg.Push(), sg.Text('Welcome Dath Password locker', justification='c'), sg.Push()],
-            [sg.Text('Enter something on Row 2'), sg.InputText()],
-            [sg.Button('Ok'), sg.Button('Cancel')] ]
+            [sg.Text("Select files or folder:"), sg.Input(key='-IN1-',size=(40, 10),enable_events=True, readonly=True,background_color='#ffd22b',text_color='Black'),sg.FolderBrowse('Select', enable_events=True)],
+            [sg.VPush()],
+            [sg.Push(), sg.Button('Ok', disabled=True, key='okB',size=(20,5)), sg.Button('Cancel', size=(20,5)), sg.Push() ]]
 
 
 
@@ -14,8 +16,15 @@ window = sg.Window('Dath Password Project', layout, icon="backend/dath_logo.ico"
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
     event, values = window.read()
+    if window['-IN1-'] != "":
+        window['okB'].update(disabled=False)
+    if event == 'okB':
+        
+        
+        #Link all of the files that retain to the local locker  
+        
+        
+        pass
     if event == sg.WIN_CLOSED or event == 'Cancel': # if user closes window or clicks cancel
         break
-    print('You entered ', values[0])
-
 window.close()
