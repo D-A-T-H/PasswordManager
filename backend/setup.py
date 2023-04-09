@@ -9,7 +9,7 @@ layout = [  [sg.Push(), sg.Text('Welcome Dath Password locker', justification='c
 
 
 # Create the Window
-window = sg.Window('Dath Password Project', layout, icon="dath_logo.ico", size= [500, 500])
+window = sg.Window('Dath Password Project', layout, icon="backend/dath_logo.ico", size= [500, 500])
 
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
